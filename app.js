@@ -126,7 +126,7 @@ const passwordsMatch = [
 // Views
 
 app.get("/", async (req, res) => {
-  const { rows } = await pool.query("SELECT * FROM messages");
+  const { rows } = await pool.query("SELECT * FROM messages ORDER BY date DESC");
   res.render("index", { user: req.user , title: "Odin Chat", messages: rows });
 });
 
