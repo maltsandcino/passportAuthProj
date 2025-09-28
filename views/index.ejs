@@ -43,7 +43,7 @@
           <%= message.message %>
         </div>
         <div class="replies">
-          <% messages.forEach(function(reply) { %>
+          <% replies.forEach(function(reply) { %>
             <% if (reply.parent === message.id) { %>
               <div class="reply">
                 <div class="poster">

@@ -126,8 +126,11 @@ const passwordsMatch = [
 // Views
 
 app.get("/", async (req, res) => {
-  const { rows } = await pool.query("SELECT * FROM messages ORDER BY date DESC");
-  res.render("index", { user: req.user , title: "Odin Chat", messages: rows });
+  var { rows } = await pool.query("SELECT * FROM messages ORDER BY date DESC");
+  const messages = rows
+  var { rows } = await pool.query(`SELECT * FROM messages ORDER BY date ASC`);
+  const replies = rows
+  res.render("index", { user: req.user , title: "Odin Chat", messages: messages, replies: replies});
 });
 
 app.get("/verify", requireLogin, async (req, res) => {
