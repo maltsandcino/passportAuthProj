@@ -1,0 +1,351 @@
+*, :root, html {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+
+}
+
+/* Sign-Up Page */
+.error {
+  color: red;
+  font-size: 0.9em;
+}
+
+h1, h3 {
+    font-weight: 500;
+}
+
+.mleft { margin-left: 25px;}
+
+h3 {
+    margin-top: 20px;
+    margin-left: 10px;
+}
+
+.signup {
+    width: 80vw;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    background-color: #d3d3d3;
+    padding: 25px;
+    box-shadow: 3px 3px 10px rgb(141, 141, 141);
+    border-radius: 2px;
+    gap: 2px;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+}
+
+.signup label {
+    font-size: larger;
+    font-weight: 600;
+    text-align: center;
+}
+
+.signup input {
+    width: 80%;
+    height: 50px;
+    border-radius: 3px;
+    border: none;
+    font-size: larger;
+}
+
+.signup input:focus {
+    width: 80%;
+    height: 50px;
+    border-radius: 3px;
+    outline: none;
+    box-shadow: 2px 2px 5px rgb(83, 87, 87)
+}
+
+.signup button {
+    margin-top: 50px;
+    width: 150px;
+    height: 80px;
+    background-color: white;
+    border: none;
+    box-shadow: 2px 2px 5px grey;
+    font-size: larger;
+    border-radius: 10px
+}
+
+.signup button:hover {
+    width: 150px;
+    height: 80px;
+    background-color: #eeeeee;
+
+    font-size: larger;
+    box-shadow: 3px 3px 8px grey;
+}
+
+.signup button:active {
+    width: 150px;
+    height: 80px;
+    background-color: #a0a0a0;
+    
+    font-size: larger;
+    box-shadow: 3px 3px 8px grey;
+}
+
+nav {
+    display: flex;
+    justify-content: flex-end;
+    height: 70px;
+    width: 100%;
+    background-color:#d3d3d3;
+    align-items: center;
+    padding-right: 5px;
+}
+
+nav h1 {
+    margin-right: auto;
+    margin-left: 10px;
+}
+
+.pill {
+    border-right: 1px solid black;
+    padding-right: 3px;
+    width: 110px;
+    padding-left: 2px;
+    transition: all 1s ease-in-out;
+    border-bottom: 1px solid transparent;
+}
+
+.pill:hover {
+    border-bottom: 1px solid black;
+}
+
+.pill a {
+    text-decoration: none;
+    color: inherit;
+}
+
+.modal {
+    position: absolute;
+    background-color: white;
+    top: 25%;
+    left: 25%;
+    z-index: 9999;
+    opacity: 1;
+    border: 1px solid black;
+    box-shadow: 2px 0px 5px black;
+    width: 50vw;
+    height: 40vh;
+    margin: auto;
+    transition: all 1s ease-in-out;
+}
+
+.modal form {
+    display: flex;
+    height: 100%;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.hidden {
+    z-index: -1;
+    opacity: 0;
+}
+
+.notice {
+    font-size: medium;
+    width: fit-content;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 30px;
+    background-color: rgb(241, 241, 103);
+    margin: auto;
+    gap: 10px;
+    margin-top: 5px;
+    border-radius: 10px;
+    padding: 5px;
+}
+
+.close:hover {
+    background-color: black;
+    color: white;
+    height: 10px;
+    width: 10px;
+}
+
+code {
+    font-weight: 600;
+}
+
+code:hover {
+    font-weight: 800;
+    text-decoration: underline;
+}
+
+code a {
+    text-decoration: none;
+    color: inherit;
+}
+
+.message {
+
+ background-color:#d3d3d3;
+  padding: 1rem;
+  margin-bottom: 1rem;
+  border-radius: 6px;
+  width: 70%;
+  margin: auto;
+  margin-top: 20px;
+}
+
+.message .left {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.9rem;
+  color: #aaa;
+  margin-bottom: 0.5rem;
+}
+
+.message .poster {
+  font-weight: bold;
+  color: #000000;
+}
+
+.message .time {
+  font-style: italic;
+}
+
+.message .right {
+  font-size: 1rem;
+  color: #000000;
+  margin-bottom: 0.5rem;
+}
+
+.replies {
+  margin-top: 0.5rem;
+  padding-left: 1rem;
+  border-left: 2px solid #6e6e6e;
+}
+
+.reply {
+  background-color: #b8b8b8;
+  padding: 0.5rem;
+  margin-top: 0.5rem;
+  border-radius: 4px;
+}
+
+.reply .poster {
+  font-weight: bold;
+  color: #000000;
+}
+
+.reply .time {
+  font-size: 0.8rem;
+  color: #000000;
+}
+
+.reply .content {
+  margin-top: 0.3rem;
+  color: #000000;
+}
+
+.actions {
+    display: flex;
+    justify-content: flex-end;
+    gap: 5px;
+    margin-top: 5px;
+}
+
+.actions a {
+
+    text-decoration: none;
+    color: #000;
+    border-radius: 5px;
+    padding: 5px;
+    font-size: x-small;
+    font-weight: 400;
+    transition: all 0.5s ease-in;
+}
+
+.actions a:hover {
+    background: black;
+    color: white;
+}
+
+/* Posts */
+
+.postContainer {
+  margin: auto;
+  width: 70%;
+  background-color: #f5f5f5;
+  border: 1px solid #ccc;
+  padding: 1rem;
+  margin-top: 2rem;
+  border-radius: 6px;
+  color: #333;
+}
+
+.postContainer form {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.postContainer label {
+  font-weight: bold;
+  color: #444;
+}
+
+.postContainer textarea {
+  background-color: #fff;
+  color: #333;
+  border: 1px solid #bbb;
+  border-radius: 4px;
+  padding: 0.5rem;
+  resize: vertical;
+  font-family: 'Segoe UI', Roboto, sans-serif;
+}
+
+.postContainer button {
+  background-color: #e0e0e0;
+  color: #222;
+  border: 1px solid #aaa;
+  padding: 0.5rem 1rem;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.postContainer button:hover {
+  background-color: #d0d0d0;
+}
+
+.postContainer button[type="clear"] {
+  background-color: #f0f0f0;
+  color: #666;
+}
+
+.postContainer button[type="clear"]:hover {
+  background-color: #e0e0e0;
+  color: #333;
+}
+
+.loginpage {
+  margin: auto;
+  margin-top: 25px;
+  width: 50%;
+  display: flex;
+  gap: 20px;
+  flex-direction: column;
+}
+
+/*  Verify */
+
+.key {
+  width: 100%;
+  font-size: xx-large;
+  margin-top: 25px;
+  text-align: center;
+}

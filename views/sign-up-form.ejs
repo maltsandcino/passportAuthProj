@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title><%= title %></title>
+  <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+  <%- include('partials/nav') %>
+  
+  <h3>By signing up, you are able to see who is posting.</h3>
+  <form action="/sign-up" method="POST" class="signup">
+    <label for="username">Username</label>
+    <input id="username" name="username" placeholder="username" type="text" />
+    <% if (errors?.username) { %>
+      <p class="error"><%= errors.username.msg %></p>
+    <% } %>
+    <label for="password">Password</label>
+    <input id="password" name="password" type="password" />
+    <% if (errors?.password) { %>
+      <p class="error"><%= errors.password.msg %></p>
+    <% } %>
+    <label for="passwordConfirmation">Confirm Password</label>
+    <input id="passwordConfirmation" name="passwordConfirmation" type="password" />
+    <% if (errors?.passwordConfirmation) { %>
+      <p class="error"><%= errors.passwordConfirmation.msg %></p>
+    <% } %>
+    <label for="admin">Delete Powers</label>
+    <input type="checkbox" id="admin" name="admin">
+    <button type="submit">Sign Up</button>
+  </form>
+
+</body>
+</html>

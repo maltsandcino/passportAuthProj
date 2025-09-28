@@ -1,0 +1,32 @@
+<script src="script.js" defer></script><nav>
+    <h1><%= title %></h1>
+    <span class="pill"><a href="/">Home</a></span>
+    <% console.log(user) %>    
+    <% if (user) {%>
+    <% if (user && user.verified === false) { %>
+  <span class="pill"><a href="/verify">Verify</a></span>
+<% } %>
+    <span class="pill"><a href="/log-out">Logout</a></span>
+    <span class="pill"><a href="/post">Post Message</a></span>
+    <% } else { %>
+        <span class="pill"><a href="/sign-up">Sign Up</a></span>
+        <span class="pill" id="otherlogin">Log in
+        </span>
+    <%}%>
+    
+</nav>
+
+<div id="otherloginmodal" class="modal hidden">
+    <form action="/log-in" method="POST">
+      <label for="username">Username</label>
+      <input id="usernameo" name="username" placeholder="username" type="text" />
+      <label for="password">Password</label>
+      <input id="passwordo" name="password" type="password" />
+      <div class="controls">
+      <button type="submit">Log In</button>
+      <button type="reset">Cancel</button>
+      </div>
+    </form>
+
+  </div>
+

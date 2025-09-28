@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><%= title %></title>
+    <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+  <%- include('partials/nav') %>
+  <div class="key">Have a secret key?</div>
+    <form action="/verify" method="POST" class="loginpage">
+      <label for="key">Enter Key Here</label>
+      <input id="key" name="key" placeholder="key" type="text" />
+      <% if (errors?.key) { %>
+      <p class="error"><%= errors.key.msg %></p>
+    <% } %>
+      <button type="submit">Submit</button>
+      <button type="reset">Cancel</button>
+      </div>
+    </form>
+
+</body></html>

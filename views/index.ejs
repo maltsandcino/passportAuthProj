@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title><%= title %></title>
+  <link rel="stylesheet" href="/styles.css">
+  <script src="script.js" defer></script>
+</head>
+<body>
+  <%- include('partials/nav') %>
+
+   <% if (user) {%>  
+    <h1 class="mleft">Hey <%= user.username %> whaddap.</h1>
+  
+  <% } else { %>
+    <div class="notice"><span>
+                        <code class="logLink">Login</code> or <code><a href="/sign-up">Sign-Up<a></code> to see who is talking.
+                        </span>
+                        <span class="close">x</span>
+    </div>
+  <%}%>
+<% if (messages && messages.length) { %>
+  <% messages.forEach(function(message) { %>
+    <% if (!message.parent) { %>
+      <div class="message" id="message-<%= message.id %>">
+        <div class="left">
+          <div class="poster">
+            <% if (user && user.verified) { %>
+              <%= message.username %>
+            <% } else { %>
+              <i>Hidden</i>
+            <% } %>
+          </div>
+          <div class="time"><%= new Date(message.date).toLocaleString('en-GB', {
+                        day: '2-digit',
+                        month: 'short',
+                        hour: '2-digit',
+                        minute: '2-digit',
+                        hour12: false
+                    }) %></div>
+        </div>
+        <div class="right">
+          <%= message.message %>
+        </div>
+        <div class="replies">
+          <% messages.forEach(function(reply) { %>
+            <% if (reply.parent === message.id) { %>
+              <div class="reply">
+                <div class="poster">
+                  <% if (user && user.verified) { %>
+                    <%= reply.username %>
+                  <% } else { %>
+                    <i>Hidden</i>
+                  <% } %>
+                </div>
+                <div class="time"><%= new Date(reply.date).toLocaleString('en-GB', {
+                        day: '2-digit',
+                        month: 'short',
+                        hour: '2-digit',
+                        minute: '2-digit',
+                        hour12: false
+                    }) %></div>
+                <div class="content"><%= reply.message %></div>
+              </div>
+            <% } %>
+          <% }) %>
+        </div>
+        <div class="actions">
+          <% if (user) { %>
+        <a href="/post/<%= message.id %>">Reply</a><% } %> <% if ( user && user.admin) { %><a href="/delete/<%= message.id %>">Delete</a> <% } %>
+        </div>
+      </div>
+      
+    <% } %>
+  <% }) %>
+<% } else { %>
+  <p>No messages found.</p>
+<% } %>
+
+
+
+
+  <div id="login" class="modal hidden">
+    <form action="/log-in" method="POST">
+      <label for="username">Username</label>
+      <input id="username" name="username" placeholder="username" type="text" />
+      <label for="password">Password</label>
+      <input id="password" name="password" type="password" />
+      <div class="controls">
+      <button type="submit">Log In</button>
+      <button type="reset">Cancel</button>
+      </div>
+    </form>
+
+  </div>
+
+</body>
+</html>

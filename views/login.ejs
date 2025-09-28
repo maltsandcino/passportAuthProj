@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><%= title %></title>
+    <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+  <%- include('partials/nav') %>
+  <form action="/log-in" method="POST" class="loginpage">
+      <label for="username">Username</label>
+      <input id="username" name="username" placeholder="username" type="text" />
+      <label for="password">Password</label>
+      <input id="password" name="password" type="password" />
+      <div class="controls">
+      <button type="submit">Log In</button>
+      <button type="clear">Cancel</button>
+      </div>
+    </form>
+
+</body>
+</html>
